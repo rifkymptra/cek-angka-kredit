@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { cekAngkaKredit } from "./actions";
 
 type DataPegawai = {
@@ -124,14 +125,25 @@ export default function Home() {
               SIaP PAK <span className="hidden sm:inline font-normal text-slate-500">| BPS Kab. Garut</span>
             </span>
           </div>
-          {hasil && (
-            <button 
-              onClick={handleKeluar}
-              className="text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 px-4 py-1.5 rounded-full transition-colors"
+          <div className="flex items-center gap-3">
+            <Link
+              href="/admin"
+              className="text-xs sm:text-sm font-semibold text-slate-600 hover:text-blue-700 bg-slate-100 hover:bg-blue-50 px-3.5 py-1.5 rounded-full transition-colors flex items-center gap-1.5"
             >
-              Akhiri Sesi
-            </button>
-          )}
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+              </svg>
+              Portal Admin
+            </Link>
+            {hasil && (
+              <button 
+                onClick={handleKeluar}
+                className="text-sm font-medium text-red-600 bg-red-50 hover:bg-red-100 px-4 py-1.5 rounded-full transition-colors"
+              >
+                Akhiri Sesi
+              </button>
+            )}
+          </div>
         </div>
       </nav>
 
